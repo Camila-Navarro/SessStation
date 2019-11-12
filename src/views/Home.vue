@@ -1,13 +1,15 @@
 <template>
-    <div class="problemabody">
+    <div class="homebody">
     <Navbar></Navbar>
     <div class="titulo">
-    <Desechar1></Desechar1>
+        <HomeTitulos></HomeTitulos>
+    </div>
+
      <div class="footer">
        <Footer></Footer>
    </div>
     </div>
-    </div>
+ 
     
   
 </template>
@@ -16,33 +18,31 @@
 // @ is an alias to /src
 
 import Navbar from'@/components/Navbar.vue';
-import Desechar1 from'@/components/Desechar1.vue';
+import HomeTitulos from'@/components/HomeTitulos.vue';
 import Footer from'@/components/Footer.vue';
 
 export default {
-  name: 'desechar',
+  name: 'elproblema',
   components: {
     
     Navbar,
-   Desechar1,
-   Footer
+    HomeTitulos,
+    Footer
+
   },
 };
 </script>
 
 <style scoped lang="scss">
-  .titulo{
-    padding-top: 3%;
+  
+ .homebody{
    
-  }
- .problemabody{
-   
-   background-image: url(../assets/desechar.jpg);
+   background-image: url(../assets/Tortuga.png);
    background-position: center;
-   background-repeat: repeat;
+   background-repeat: no-repeat;
    background-size:auto;
- }
   .footer{
     margin-top: 40px;
   }
+ }
 </style>

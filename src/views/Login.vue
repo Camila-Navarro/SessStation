@@ -1,13 +1,15 @@
 <template>
-    <div class="problemabody">
+    <div class="loginbody">
     <Navbar></Navbar>
     <div class="titulo">
-    <Desechar1></Desechar1>
+        <LoginBody></LoginBody>
+    </div>
+
      <div class="footer">
        <Footer></Footer>
    </div>
     </div>
-    </div>
+ 
     
   
 </template>
@@ -16,16 +18,17 @@
 // @ is an alias to /src
 
 import Navbar from'@/components/Navbar.vue';
-import Desechar1 from'@/components/Desechar1.vue';
+import LoginBody from'@/components/LoginBody.vue';
 import Footer from'@/components/Footer.vue';
 
 export default {
-  name: 'desechar',
+  name: 'elproblema',
   components: {
     
     Navbar,
-   Desechar1,
-   Footer
+    LoginBody,
+    Footer
+
   },
 };
 </script>
@@ -33,16 +36,12 @@ export default {
 <style scoped lang="scss">
   .titulo{
     padding-top: 3%;
-   
+  
   }
- .problemabody{
-   
-   background-image: url(../assets/desechar.jpg);
-   background-position: center;
-   background-repeat: repeat;
-   background-size:auto;
- }
+ .loginbody{
+   background-color: RGB(204,22,27);
   .footer{
     margin-top: 40px;
   }
+ }
 </style>

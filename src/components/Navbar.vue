@@ -1,8 +1,8 @@
 <template>
 <div>
-  <b-navbar toggleable="lg" type="light" variant="warning">
+  <b-navbar toggleable="lg" type="light"  class="bg-foobar">
       <b-container>
-          <b-navbar-brand :to="{name:'#'}">
+          <b-navbar-brand :to="{name:'Home'}">
              <img src="../assets/small.png"  class="d-inline-block align-top" alt="logosmall">
           </b-navbar-brand>
 
@@ -20,13 +20,13 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
       
-        <b-nav-item-dropdown right>
+        <b-nav-item-dropdown  right>
           <!-- Using 'button-content' slot -->
           <template v-slot:button-content>
-            <span>Registro / inicio</span>
+            <span>Registro/Inicio</span>
           </template>
-          <b-dropdown-item href="#">Registrate!</b-dropdown-item>
-          <b-dropdown-item href="#">Incia Sesion!</b-dropdown-item>
+          <b-dropdown-item :to="{name:'Signin'}">Registrarse</b-dropdown-item>
+          <b-dropdown-item :to="{name:'Login'}">Iniciar Sesion</b-dropdown-item>
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
@@ -44,7 +44,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import url('https://fonts.googleapis.com/css?family=Handlee&display=swap');
+  .bg-foobar{
+    background-color: rgb(255, 92, 66);
+    font-family: 'Handlee', cursive;
+    font-size: 1.300em;
+ 
+  }
  
  
 

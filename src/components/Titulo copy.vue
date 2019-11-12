@@ -34,8 +34,7 @@ export default {
 </script>
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Handlee&display=swap"');
-
+@import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap');
 h2{
   font-size: 5em;
   font-family: 'Pacifico', cursive; 
@@ -50,7 +49,7 @@ h2{
 }
 h1{
     font-size:1.5em;
-   font-family: 'Handlee', cursive;
-    color:black;
+    font-family: 'Jomolhari', serif;
+    color:white;
 }
 </style>

@@ -2,9 +2,14 @@
     <div class="problemabody">
     <Navbar></Navbar>
     <div class="titulo">
-    <Titulo></Titulo>
+        <Titulo></Titulo>
     </div>
+
+     <div class="footer">
+       <Footer></Footer>
+   </div>
     </div>
+ 
     
   
 </template>
@@ -14,6 +19,7 @@
 
 import Navbar from'@/components/Navbar.vue';
 import Titulo from'@/components/Titulo.vue';
+import Footer from'@/components/Footer.vue';
 
 export default {
   name: 'elproblema',
@@ -21,20 +27,24 @@ export default {
     
     Navbar,
     Titulo,
+    Footer
   },
 };
 </script>
 
 <style scoped lang="scss">
   .titulo{
-    padding-top: 2%;
-    margin-top: 0%;
+    padding-top: 3%;
+  
   }
  .problemabody{
-   height:900px;
+   
    background-image: url(../assets/bgproblema.png);
    background-position: center;
-   background-repeat: no-repeat;
+   background-repeat: repeat;
    background-size:auto;
+  .footer{
+    margin-top: 40px;
+  }
  }
 </style>
