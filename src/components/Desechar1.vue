@@ -2,7 +2,7 @@
 <template>
 <div>
 
-    <h2>     A la hora de Desechar</h2>
+    <h2> A la hora de Desechar</h2>
     
     <b-card no-body class="overflow-hidden fondo container" style="max-width: 70%;">
  <b-row no-gutters>
@@ -41,8 +41,14 @@
  
                                  <div class="d-flex justify-content-center ">
        <div class="xs-row-12 justify-content-center d-xs-none d-none d-lg-block">
-          <div class="imagen">
-          <img class="img"src="../assets/basura1.png" ><br>
+       <div class="imagen2">
+
+
+                          <img class="img2"src="../assets/botella3.png" alt="flecha1"><br>
+                          </div>
+         <div class="imagen">
+
+          <img src="../assets/basura3.png" alt="flecha1"><br>
           <h4>¡Aprende a Reciclar!</h4>
           </div>
           </div>
@@ -93,40 +99,72 @@ h4{
   color:black; 
   }
  
-  .imagen{
+ .imagen {
+  margin-left: 0px;
+    margin-right: 0px;
+       padding-top:0px;
+      position:relative;
+  
+      -webkit-animation:imagen 1s infinite;
+    }
+    
+    @-webkit-keyframes imagen {
+      0%       { bottom:1px; }
+      25%, 75% { bottom:15px; }
+      70%      { bottom:20px; }
+      100%     {bottom:0;}
+    }
+.imagen2 {
+
+      position:relative;
+      -webkit-animation:imagen2 1s infinite;
+    }
+    
+    @-webkit-keyframes imagen2 {
+      0%       { bottom:1px; }
+      25%, 75% { bottom:15px; }
+      50%      { bottom:20px; }
+      100%     {bottom:0;}
+    }
+
+.imagen2{
   
     display: block;
     margin-left: 0px;
     margin-right: 0px;
-    padding-top:250px;
-    .img{
+       padding-top:150px;
+
+    .img2{
         display:block;
         margin-left: auto;
         margin-right: auto;
-        width: 70%;   
+     
+        width: 60%;   
         transform:scale(1);
         -ms-transform:scale(1); // IE 9 
         -moz-transform:scale(1); // Firefox 
         -webkit-transform:scale(1); // Safari and Chrome 
         -o-transform:scale(1); // Opera 
         -webkit-transition: all 500ms ease-in-out; // IE 9
-        -moz-transition: all 500ms ease-in-out; // Firefox
-        -ms-transition: all 500ms ease-in-out; // Safari and Chrome 
-        -o-transition: all 500ms ease-in-out; // Opera       
+        -moz-transition: all 50ms ease-in-out; // Firefox
+        -ms-transition: all 50ms ease-in-out; // Safari and Chrome 
+        -o-transition: all 50ms ease-in-out; // Opera       
+margin-bottom: -2em;
     }        
     &:hover{
-        .img{
-            transform:scale(0.8);
-            -ms-transform:scale(0.8); // IE 9 
-            -moz-transform:scale(0.8); // Firefox 
-            -webkit-transform:scale(0.8); // Safari and Chrome 
-            -o-transform:scale(0.8); // Opera
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            border-radius: 10px;
+        .img2{
+         //translate(-50px,-50px) scale(0.5);
+            -webkit-transform: translate(0px,130px) scale(0.1);
+            -moz-transform: translate(0px,130px) scale(0.1);
+            -o-transform: translate(0px,130px) scale(0.1);
+            -ms-transform: translate(0px,130px) scale(0.1);
+          
+            -moz-border-radius: 0px;
+                
         }
     
     } 
+    
 }
 
 </style>

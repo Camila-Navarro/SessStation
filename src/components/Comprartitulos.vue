@@ -25,12 +25,14 @@
                                  <div class="d-flex justify-content-center ">
        <div class="xs-row-12 justify-content-center d-xs-none d-none d-lg-block">
        <div class="imagen2">
-                          <img class="img2"src="../assets/botella.png" alt="flecha1"><br>
+
+
+                          <img class="img2"src="../assets/botella1.png" alt="flecha1"><br>
                           </div>
          <div class="imagen">
 
-          <img src="../assets/basura3.png" alt="flecha1"><br>
-          <h4>¡Aprende a Recilar!</h4>
+          <img src="../assets/basura1.png" alt="flecha1"><br>
+          <h4>¡Aprende a Reciclar!</h4>
           </div>
           </div>
           </div>
@@ -42,11 +44,13 @@
 </template>
 
 <script>
+
 export default {
     
 }
 
 </script>
+
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Handlee&display=swap"');
@@ -78,18 +82,21 @@ h4{
   font-family: 'Pacifico', cursive; 
   color:black; 
   }
+
+ 
   .imagen {
   margin-left: 100px;
     margin-right: 0px;
        padding-top:0px;
       position:relative;
+  
       -webkit-animation:imagen 1s infinite;
     }
     
     @-webkit-keyframes imagen {
       0%       { bottom:1px; }
       25%, 75% { bottom:15px; }
-      50%      { bottom:20px; }
+      70%      { bottom:20px; }
       100%     {bottom:0;}
     }
 .imagen2 {
@@ -110,35 +117,39 @@ h4{
     display: block;
     margin-left: 0px;
     margin-right: 0px;
-       padding-top:50px;
+       padding-top:150px;
 
     .img2{
         display:block;
         margin-left: auto;
         margin-right: auto;
-        width: 20%;   
+     
+        width: 50%;   
         transform:scale(1);
         -ms-transform:scale(1); // IE 9 
         -moz-transform:scale(1); // Firefox 
         -webkit-transform:scale(1); // Safari and Chrome 
         -o-transform:scale(1); // Opera 
         -webkit-transition: all 500ms ease-in-out; // IE 9
-        -moz-transition: all 500ms ease-in-out; // Firefox
-        -ms-transition: all 500ms ease-in-out; // Safari and Chrome 
-        -o-transition: all 500ms ease-in-out; // Opera       
+        -moz-transition: all 50ms ease-in-out; // Firefox
+        -ms-transition: all 50ms ease-in-out; // Safari and Chrome 
+        -o-transition: all 50ms ease-in-out; // Opera       
+margin-bottom: -2em;
     }        
     &:hover{
         .img2{
-            transform:scale(0.0);
-            -ms-transform:scale(0.0); // IE 9 
-            -moz-transform:scale(0.0); // Firefox 
-            -webkit-transform:scale(0.0); // Safari and Chrome 
-            -o-transform:scale(0.0); // Opera
-            -webkit-border-radius: 0px;
+         //translate(-50px,-50px) scale(0.5);
+            -webkit-transform: translate(0px,130px) scale(0.1);
+            -moz-transform: translate(0px,130px) scale(0.1);
+            -o-transform: translate(0px,130px) scale(0.1);
+            -ms-transform: translate(0px,130px) scale(0.1);
+          
             -moz-border-radius: 0px;
-            border-radius: 0px;
+                
         }
     
     } 
+    
 }
+
 </style>

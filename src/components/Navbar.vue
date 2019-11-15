@@ -3,7 +3,7 @@
   <b-navbar toggleable="lg" type="light"  class="bg-foobar">
       <b-container>
           <b-navbar-brand :to="{name:'Home'}">
-             <img src="../assets/small.png"  class="d-inline-block align-top" alt="logosmall">
+             <img src="../assets/small.png"  class="d-inline-block align-top" alt="logosmall"onmouseout="this.style.opacity=1;this.filters.alpha.opacity='100';" onmouseover="this.style.opacity=0.7;this.filters.alpha.opacity='50';">
           </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

@@ -28,3 +28,8 @@ $(".b-navbar-brand").mouseover(function(){
       paddingTop: "15px"
   }, 100);
 });
+$('#imageid').hover(function() {
+  $(this).attr('src', "../assets/basura2.png");
+}, function() {
+  $(this).attr('src', '/folder/image1.jpg');
+});
