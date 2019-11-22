@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Elproblema from './views/Elproblema.vue';
-
+import firebase from 'firebase';
 Vue.use(Router);
 
-export default new Router({
+const router= new Router({
   routes: [
     {
       path: '/elproblema',
@@ -34,18 +34,15 @@ export default new Router({
     {
       path: '/aldesechar',
       name: 'Desechar',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/Desechar.vue'),
     },
     {
       path: '/misaportes',
       name: 'Aportes',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/Aportes.vue'),
+      meta: {
+        requiresAuth:  true
+      }
     },
     {
       path: '',
@@ -74,3 +71,21 @@ export default new Router({
     
   ],
 });
+
+router.beforeEach((to,from,next) =>{
+
+  if(to.matched.some(ruta=>ruta.meta.requiresAuth)){
+    const user = firebase.auth().currentUser;
+    if (user){
+      next();
+    }else{
+      next({
+        name: 'Login'
+      })
+    }
+  } else{
+    next();
+  }
+})
+
+export default router

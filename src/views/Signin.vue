@@ -4,7 +4,6 @@
     <div class="titulo">
         <SignBody></SignBody>
     </div>
-
      <div class="footer">
        <Footer></Footer>
    </div>
@@ -20,6 +19,8 @@
 import Navbar from'@/components/Navbar.vue';
 import SignBody from'@/components/SignBody.vue';
 import Footer from'@/components/Footer.vue';
+import db from '@/firebase/init'
+import firebase from 'firebase'
 
 export default {
   name: 'elproblema',

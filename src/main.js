@@ -7,17 +7,21 @@ Vue.use(BootstrapVue)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { Scene } from 'three';
+import firebase from 'firebase';
 
-
-const scene = new Scene();
 
 Vue.config.productionTip = false;
+let app=null
+firebase.auth().onAuthStateChanged(()=>{
+  if (!app){
+    app= new Vue({
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app')
+  }
+})
 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app');
 
 $(".b-navbar-brand").mouseover(function(){
   $(this).animate({
@@ -27,9 +31,4 @@ $(".b-navbar-brand").mouseover(function(){
   $(this).animate({
       paddingTop: "15px"
   }, 100);
-});
-$('#imageid').hover(function() {
-  $(this).attr('src', "../assets/basura2.png");
-}, function() {
-  $(this).attr('src', '/folder/image1.jpg');
 });

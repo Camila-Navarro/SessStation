@@ -1,82 +1,95 @@
 <template>
 <div>
-    <div class="container  ">
+    <div class="container">
     <img src="../assets/LOGO PNG.png" class="img-fluid" alt="logo">
-   
-        <div class="row">
-            <div class="col-sm-12 mx-auto">
-    <b-form-group
-      id="fieldset-1"
-      label-for="input-1"
-      :invalid-feedback="invalidFeedback"
-      :valid-feedback="validFeedback"
-      :state="state"
+    <div class="col">
+      <div class="col">
+      <form action="#" @submit.prevent="registrer">
+
       
-    >
-      <b-form-input id="input-1" v-model="name" :state="state" trim></b-form-input>
-    </b-form-group>
-             </div>
-             <div class="col-sm-12 mx-auto">
-    <b-form-group
-      id="fieldset-1"
-      label-for="input-1"
-      :invalid-feedback="invalidFeedback"
-      :valid-feedback="validFeedback"
-      :state="state"
-      
-    >
-      <b-form-input id="input-1" v-model="name" :state="state" trim></b-form-input>
-    </b-form-group>
-    <b-form-group
-      id="fieldset-1"
-      label-for="input-1"
-      :invalid-feedback="invalidFeedback"
-      :valid-feedback="validFeedback"
-      :state="state"
-      
-    >
-      <b-form-input id="input-1" v-model="name" :state="state" trim></b-form-input>
-    </b-form-group>
-    <div class="boton">
-      <b-button variant="light"><sam>Registrarse</sam></b-button>
+
+             <div class="form-group">
+              <label class="" for="exampleInputName">Nombre</label>
+              <input type="name" class="form-control" id="exampleInputName1" aria-describedby="Nameuser" placeholder="Ej. Cristiano Rodríguez" v-model="name">
+              
+            </div>
+         
+            <div class="form-group">
+              <label for="exampleInputEmail1">Correo</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ej. u111111@gmail.com" v-model="email">
+              <small id="emailHelp" class="form-text text-muted">No te preocupes, no vamos a compartir tu e-mail con nadie.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Tu password." v-model="password">
+            </div>
+           
+            <button type="submit" class="btn btn-primary" >Registrarme</button>
+      </form>
+        </div>
+      </div>
     </div>
-             </div>
-             
-         </div>
-    </div>
+    <br>
+                <div class="alert alert-danger" role="alert" v-if="error">
+                  {{error}}
+                </div>
  
 </div>
 </template>
 
 <script>
-export default {
-    computed: {
-      state() {
-        return this.name.length >= 4 ? true : false
-      },
-      invalidFeedback() {
-        if (this.name.length > 4) {
-          return ''
-        } else if (this.name.length > 0) {
-          return 'Ingrese al menos 4 caracteres '
-        } else {
-          return ''
-        }
-      },
-      validFeedback() {
-        return this.state === true ? 'Validado' : ''
+import db from '@/firebase/init'
+import firebase from 'firebase'
+
+  export default {
+    data(){
+      return {
+        name: '',
+        email: '',
+        password: ''
       }
     },
-    data() {
-      return {
-        name: ''
+    name: 'Registrer',
+    methods: {
+      registrer(){
+        this.error = ''
+        if (this.name && this.email && this.password){
+          firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+            .then(user=> {
+              //actualizar
+              if(user){
+                user.updateProfile({
+                  displayName: this.name
+                }).then((u)=>{
+                   
+                    this.name=''
+                    this.email=''
+                    this.password=''
+                    this.$router.push({name: 'Home'})
+                   
+                }).catch((err)=>{
+                  this.error=err.message
+                })
+               }
+            }).catch(err =>{
+              this.error =err.message
+            })
+          //enviamos formulario
+
+        }else{
+          this.error = 'Todos los campos son requeridos.'
+        }
+
       }
     }
   }
 
+
 </script>
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Handlee&display=swap');
+
 
 
   .container{

@@ -18,16 +18,23 @@
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
+
       <b-navbar-nav class="ml-auto">
-      
-        <b-nav-item-dropdown  right>
-          <!-- Using 'button-content' slot -->
-          <template v-slot:button-content>
-            <span>Registro/Inicio</span>
+
+          <template v-if ="user">
+             
+           {{user.email}}<b-dropdown id="dropdown-right"  variant="primary" class="m-0">
+            <b-dropdown-item href="#" @click.prevent="logout">Cerrar Sesion</b-dropdown-item>
+            </b-dropdown>
           </template>
-          <b-dropdown-item :to="{name:'Signin'}">Registrarse</b-dropdown-item>
-          <b-dropdown-item :to="{name:'Login'}">Iniciar Sesion</b-dropdown-item>
-        </b-nav-item-dropdown>
+
+          <template v-else>
+            <b-dropdown id="dropdown-right" right text="Login / Registro" variant="primary" class="m-2">
+            <b-dropdown-item :to="{name:'Login'}">Iniciar Sesion</b-dropdown-item>
+            <b-dropdown-item :to="{name:'Signin'}">Registrarme</b-dropdown-item>
+            </b-dropdown>
+          </template>
+
       </b-navbar-nav>
     </b-collapse>
     </b-container>
@@ -38,7 +45,36 @@
 
 
 <script>
+import db from '@/firebase/init'
+import firebase from 'firebase'
 export default {
+  data(){
+    return{
+      isOpen: false,
+      user: null
+    }
+  },
+  methods :{
+    toggleMenu(){
+      const status =!this.isOpen
+      this.isOpen=status
+    },
+    logout(){
+      firebase.auth().signOut().then(() =>{
+        this.$router.push({name: 'Login'})
+      })
+    },
+
+  },
+  created (){
+    firebase.auth().onAuthStateChanged(user => {
+      if(user){
+        this.user =user
+      }else{
+        this.user=null
+      }
+    })
+  }
     
 }
 </script>

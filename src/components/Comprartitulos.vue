@@ -4,7 +4,7 @@
    
     <b-card no-body class="overflow-hidden fondo container" style="max-width: 70%;">
  <b-row no-gutters>
-      <b-col md="8"style="text-align:left">
+      <b-col md="8" style="text-align:left">
             <b-card-body title=""> 
             <h3>Consejos a la hora de comprar </h3>
 <br>
@@ -20,14 +20,14 @@
 
             </b-card-body>
       </b-col>
-                    <b-col md="4"style="text-align:left">
+                    <b-col md="4" style="text-align:left">
   
                                  <div class="d-flex justify-content-center ">
        <div class="xs-row-12 justify-content-center d-xs-none d-none d-lg-block">
        <div class="imagen2">
 
 
-                          <img class="img2"src="../assets/botella1.png" alt="flecha1"><br>
+                          <img class="img2"src="../assets/botella1.png" alt="flecha1"> <br>
                           </div>
          <div class="imagen">
 
@@ -85,10 +85,10 @@ h4{
 
  
   .imagen {
-  margin-left: 100px;
-    margin-right: 0px;
+       margin-left: 50px;
+       margin-right: 0px;
        padding-top:0px;
-      position:relative;
+       position:relative;
   
       -webkit-animation:imagen 1s infinite;
     }

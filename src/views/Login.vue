@@ -20,6 +20,8 @@
 import Navbar from'@/components/Navbar.vue';
 import LoginBody from'@/components/LoginBody.vue';
 import Footer from'@/components/Footer.vue';
+import db from '@/firebase/init'
+import firebase from 'firebase'
 
 export default {
   name: 'elproblema',
